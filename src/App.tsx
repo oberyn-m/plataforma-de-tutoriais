@@ -21,7 +21,7 @@ function App() {
   return (
     <ul>
       {data?.lessons.map(lesson => {
-        return <li>{lesson.title}</li>
+        return <li key={lesson.id}>{lesson.title}</li>
       })}
     </ul>
   )
