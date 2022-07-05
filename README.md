@@ -12,7 +12,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - [TYPESCRIPT]
 - [GRAPHQL]
 
-## Autor
+## ✒ Autor
 
 **Isaac Matos**
 
