@@ -1,22 +1,22 @@
 import { DefaultUi, Player, Youtube } from "@vime/react";
-import { gql, useQuery } from "@apollo/client";
 import { CaretRight, DiscordLogo, FileArrowDown, Image, Lightning } from "phosphor-react";
 
 import '@vime/core/themes/default.css';
+import { useGetLessonBySlugQuery } from "../graphql/generated";
 
 interface VideoProps {
   lessonSlug: string;
 }
 
 export function Video(props: VideoProps) {
-  const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
+  const { data } = useGetLessonBySlugQuery ({
     variables: {
       slug: props.lessonSlug,
     },
     fetchPolicy: 'no-cache'
   })
 
-  if (!data) {
+  if (!data || !data.lesson) {
     return (
       <div className="flex-1">
         <div className="py-[20%] flex items-center justify-center">
@@ -46,7 +46,9 @@ export function Video(props: VideoProps) {
             <p className="mt04 text-gray-200 leading-relaxed">
               {data.lesson.description}
             </p>
-            <div className="flex items-center gap-4 mt-6">
+
+            {data.lesson.teacher && (
+              <div className="flex items-center gap-4 mt-6">
               <img
                 className="h-16 w-16 rounded-full border-2 border-blue-500"
                 src={data.lesson.teacher.avatarURL}
@@ -62,14 +64,16 @@ export function Video(props: VideoProps) {
                 </span>
               </div>
             </div>
+            )}
+
           </div>
 
           <div className="flex flex-col gap-4">
-            <a href="https://discord.gg/MZB4Mcwm" target="_blank" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
+            <a href="https://discord.gg/XmnQErmyUM" target="_blank" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
               <DiscordLogo size={24} />
               Comunidade do Discord
             </a>
-            <a href="https://discord.gg/MZB4Mcwm" target="_blank" className="p-4 text-sm border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors">
+            <a href="https://drive.google.com/drive/folders/1KYJJ1rXAXcv27HerotKVBq1svv-9F6Ea?usp=sharing" target="_blank" className="p-4 text-sm border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors">
               <Lightning size={24} />
               Acesse o desafio
             </a>
