@@ -16,7 +16,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 **Isaac Matos**
 
-## Encontre-me nas redes sociais:
+## 👥 Encontre-me nas redes sociais:
 
 - 🌍 [Linkedin](https://www.linkedin.com/in/isaac-matos-568b6911a/)
 - 🌍 [Twitter](https://twitter.com/ic_matos)
