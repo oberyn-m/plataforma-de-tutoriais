@@ -22,4 +22,4 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - 🌍 [Twitter](https://twitter.com/ic_matos)
 
 ## ⚡ Projeto Online:
-- 
+- [Link](https://intellisys-tutoriais.vercel.app)
